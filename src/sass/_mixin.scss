@@ -1,0 +1,39 @@
+// settings
+$remBase: 16; //set base font size. unitless value in pixels.
+$widthMin: 480; //set small breakpoint. unitless value in pixels.
+$widthMax: 1024; //set large breakpoint. unitless value in pixels.
+
+@mixin font-size($valueMin, $valueMax) {
+	// turn mixin parameters into rem value.
+	$fontMin: $valueMin * $remBase;
+	$fontMax: $valueMax * $remBase;
+	
+	// set minimum font size. give it rem value.
+	font-size: $valueMin * 1rem;
+	
+	// set font size between min and max breakpoints.
+	@media (min-width: #{$widthMin}px) {
+		font-size: calc( #{$fontMin}px + (#{$fontMax} - #{$fontMin}) * ((100vw - #{$widthMin}px) / (#{$widthMax} - #{$widthMin})));
+	}
+
+	// set font size above max breakpoint
+	@media (min-width: #{$widthMax}px) {
+		font-size: $valueMax * 1rem;
+	}
+}
+
+:root {
+    // set base font size
+    font-size: $remBase * 1px;
+}
+body {
+    @include font-size(1, 1.1);
+}
+h1 {
+    @include font-size(1.5, 7);
+}
+
+.link{
+	text-decoration: none;
+	color: inherit;
+}

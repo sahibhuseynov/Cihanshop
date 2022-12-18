@@ -1,0 +1,65 @@
+@import "../../sass/index.scss";
+.slider {
+  @include themify($themes) {
+    background-color: themed('slider');
+    color: themed('textColor');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .slides {
+      @include flex(center, center);
+      height: 100%;
+      width: 100%;
+      padding: 30px;
+     
+      img {
+        width: 240px;
+        height: 321px;
+        object-fit: cover;
+        @include mobile {
+          width: 200px;
+          height: 200px;
+          object-fit: contain;
+        }
+      }
+      
+    }
+    .buttons {
+      @include flex(center, space-between);
+      padding: 0 20px 20px;
+      color: themed('textColor');
+      
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: $transition;
+        
+        cursor: pointer;
+        span {
+          width: 50px;
+          height: 2px;
+          background-color: black;
+          background-color: themed('textColor');
+          @include mobile {
+            width: 30px;
+          }
+        }
+        button {
+          border: none;
+          background-color: inherit;
+          color: themed('textColor');
+          font-size: 14px;
+          cursor: pointer;
+          @include mobile {
+            display: none;
+          }
+        }
+
+        &:hover {
+          scale: 1.2;
+        }
+      }
+    }
+  }
+}

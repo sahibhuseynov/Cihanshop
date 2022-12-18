@@ -1,0 +1,103 @@
+@import "../../sass/index.scss";
+
+.navbar {
+  @include themify($themes) {
+    height: 80px;
+    background-color: themed('bg');
+    color: themed('textColor');
+    border-bottom: 1px solid white;
+    .wrapper {
+      @include flex(center, space-between);
+      padding: 20px 40px;
+      @include mobile {
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .left {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        gap: 20px;
+
+        @include desktop {
+          display: none;
+        }
+        .item {
+          @include flex(center, center);
+          cursor: pointer;
+          .link {
+            text-decoration: none;
+            font-size: 14px;
+            color: inherit;
+            transition: $transition;
+            &:hover {
+              color: $color-link-color;
+            }
+          }
+        }
+      }
+
+      .center {
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .right {
+        @include flex(center,end);
+        flex: 1;
+        gap: 15px;
+        @include mobile {
+          display: none;
+        }
+       
+        .item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          cursor: pointer;
+          transition: $transition;
+
+          .dropdown {
+            position: absolute;
+            top: 30px;
+            background-color: #242424;
+            padding: 10px 25px;
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              li {
+                color: white;
+                font-size: 13px;
+                transition: $transition;
+                &:hover {
+                  color: #966b54;
+                }
+              }
+            }
+          }
+          span {
+            font-size: 14px;
+            @include desktop {
+              display: none;
+            }
+          }
+          &:hover {
+            color: $color-link-color;
+          }
+        }
+      }
+
+      .mobile__menu {
+        display: none;
+
+        @include mobile {
+          display: flex;
+        }
+      }
+    }
+  }
+}

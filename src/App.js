@@ -1,23 +1,82 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet
+} from "react-router-dom";
+import "./sass/index.scss";
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/home/Home";
+import { useSelector } from "react-redux";
+import Cart from "./pages/cart/Cart";
+import Login from "./pages/login/Login";
+import Register from './pages/register/Register';
+import About from "./pages/about/About";
+import Contact from './pages/contact/Contact';
+import Product from './pages/product/Product';
+import ProductDetail from "./pages/productDetail/ProductDetail";
+const Layout = () => {
+
+  const mode = useSelector((state) => state.dark.darkmode)
+  console.log(mode)
+  return (
+   <div className={`theme-${mode ? 'dark': 'light'}`}>
+      <Navbar />
+      <Outlet />
+      <Footer />
+   </div>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children:[
+      {
+        path:'/',
+        element:<Home />
+      },
+      
+      {
+        path:'/cart',
+        element: <Cart />
+      },
+      {
+        path:'/login',
+        element:<Login />
+      },
+      {
+        path:'/register',
+        element:<Register />
+      },
+      {
+        path:'/about',
+        element:<About />
+      },
+      {
+        path:'/contact',
+        element:<Contact />
+      },
+      {
+        path:'/product',
+        element:<Product />
+      },
+      {
+        path:'/product/:id',
+        element:<ProductDetail />
+      }
+
+    ]
+  },
+]);
 
 function App() {
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+       <RouterProvider router={router} />
     </div>
   );
 }

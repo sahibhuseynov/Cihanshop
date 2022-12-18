@@ -1,0 +1,61 @@
+@import '../../sass/index.scss';
+.login{
+    @include themify($themes) {
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: themed('bg');
+    .context{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 0 ;
+
+        h2{
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.2em;
+            margin-bottom: 10px;
+            color: themed('textColor');
+        }
+
+        input{
+            background-color: themed('inputbg');
+            border: none;
+            outline: none;
+            font-size: 15px;
+            padding: 15px;
+            min-width: 400px;
+            margin-bottom: 15px;
+            
+            &:focus{
+                background-color: white;
+                outline: 2px solid black;
+            }
+        }
+        p{
+            color: themed('textColor');
+            margin-bottom: 20px;
+        }
+        button{
+            padding: 20px 30px;
+            background-color:$color-hover-color;
+            
+                    border: none;
+                    transition: $transition;
+                    color: themed('foottext');
+                    margin-bottom: 15px;
+                    cursor: pointer;
+                    &:hover{
+                        background-color:$color-link-color;
+                        color: white;
+                        
+                    }
+        }
+        span{
+            color: themed('textColor');
+        }
+    }
+    
+}
+}

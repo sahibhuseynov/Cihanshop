@@ -1,0 +1,16 @@
+.common__section{
+    background: 
+    no-repeat center center; 
+    background-size: cover;
+    padding: 70px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .textheader{
+        h1{
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+}
