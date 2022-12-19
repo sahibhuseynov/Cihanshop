@@ -25,7 +25,7 @@ const Navbar = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity )
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
-
+ 
   const dispatch = useDispatch();
 
   const toogleMode = () => {
@@ -52,7 +52,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <motion.div whileTap={{scale:1.7}} className="item" onClick={toogleMode}>
+          <motion.div whileTap={{scale:1.7}} className="item itemdark" onClick={toogleMode}>
              {
               mode ?  <BsSun /> : <BsMoon />
              }
@@ -97,10 +97,19 @@ const Navbar = () => {
         </div>
         
         <div className="mobile__menu">
-        <Hamburger toggled={isOpen} toggle={setIsOpen} />
+        <div className="mobile__content">
+          <motion.div whileTap={{scale:1.7}} className="item itemdark" onClick={toogleMode}>
+               {
+                mode ?  <BsSun size={25} /> : <BsMoon size={25} />
+               }
+            </motion.div>
+          <Hamburger  toggled={isOpen} toggle={setIsOpen} />
         </div>
-
+        </div>
+       
       </div>
+
+      
     </div>
   );
 };

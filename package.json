@@ -15,9 +15,11 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    
     "react-toastify": "^9.1.1",
     "sass": "^1.56.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zod": "^3.20.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,5 +44,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "react-hook-form": "^7.41.0",
+    "yup": "^0.32.11"
   }
 }

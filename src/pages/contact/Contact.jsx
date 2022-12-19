@@ -35,6 +35,12 @@ const Contact = () => {
             <p>Sat: 9 AM - 4 PM</p>
           </div>
         </div>
+        <div className="form__control">
+          <h2>Drop a Line</h2>
+          <form >
+            
+          </form>
+        </div>
       </section>
     </>
   );

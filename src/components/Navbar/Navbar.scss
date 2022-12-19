@@ -36,6 +36,7 @@
             }
           }
         }
+        
       }
 
       .center {
@@ -93,11 +94,18 @@
 
       .mobile__menu {
         display: none;
-
+        .mobile__content{
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
         @include mobile {
           display: flex;
         }
       }
+     
     }
+    
   }
+ 
 }

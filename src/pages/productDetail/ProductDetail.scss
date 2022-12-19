@@ -9,6 +9,9 @@
             display: flex;
             margin-top: 80px;
             gap: 50px;
+            @include desktop2 {
+                flex-direction: column;
+              }
             .left{
                 display: flex;
                 flex: 0.8;
@@ -36,17 +39,16 @@
                 }
 
                 .left__bottom{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 15px;
+                    display: grid;
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
+                    column-gap: 20px;
+                    
                     .item{
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         background-color: themed('bg2');
-                        width: 120px;
-                        height: 120px;
+                        
 
                         img{
                             width: 100%;
@@ -84,7 +86,9 @@ select{
     margin-top: 8px;
     background-color: themed('inputbg');
     border: none;
-
+    @media (max-width: 768px) {
+        width: 100%;
+      }
     
     
 }

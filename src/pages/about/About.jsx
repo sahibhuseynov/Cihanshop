@@ -6,7 +6,6 @@ import personImg1 from '../../assets/image/person1.webp'
 import personImg2 from '../../assets/image/person2.webp'
 import personImg3 from '../../assets/image/person3.webp'
 import common from '../../assets/image/common.webp'
-
 const About = () => {
   return (
     <>
@@ -51,6 +50,7 @@ const About = () => {
                         <h4>LOCATIONS</h4>
                     </div>
                 </div>
+          
 
                 <div className='personal'>
                   <div className='content'>
