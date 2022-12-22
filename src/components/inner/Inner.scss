@@ -2,7 +2,7 @@
 
 .inner{
     @include themify($themes) { 
-    padding: 40px 40px;
+    padding: 40px ;
     
     .wrapper{
        display: grid;

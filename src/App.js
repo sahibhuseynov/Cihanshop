@@ -15,15 +15,18 @@ import About from "./pages/about/About";
 import Contact from './pages/contact/Contact';
 import Product from './pages/product/Product';
 import ProductDetail from "./pages/productDetail/ProductDetail";
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 const Layout = () => {
 
   const mode = useSelector((state) => state.dark.darkmode)
-  console.log(mode)
+  
   return (
    <div className={`theme-${mode ? 'dark': 'light'}`}>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      <ScrollToTop>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </ScrollToTop>
    </div>
   )
 }
@@ -76,7 +79,9 @@ function App() {
   
   return (
     <div >
-       <RouterProvider router={router} />
+      
+        <RouterProvider router={router} />
+        
     </div>
   );
 }

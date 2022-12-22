@@ -1,0 +1,68 @@
+@import '../../sass/index.scss';
+    .CartItem{
+        @include themify($themes) {
+            background-color: themed('bg');
+            color: themed('textColor');
+        padding: 40px ;
+        .cart__item{
+            display: flex;
+            border-top: 1px solid gray;
+            justify-content: space-between;
+            align-items: center;
+            
+            .left{
+                display: flex;
+                flex: 1;
+                align-items: center;
+                .cart__img{
+                    width: 120px;
+                    height: 120px;
+        
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .center{
+                display: flex;
+                justify-content: center;
+                flex: 1;
+                
+            }
+            .right{
+                display: flex;
+                flex: 1;
+                align-items: center;
+                justify-content: space-between;
+                .cart__range{
+                    display: flex;
+                    flex: 0.2;
+                    align-items: center;
+                    justify-content: space-between;
+                    border: 2px solid $color-link-color;
+                    padding-left: 12px;
+                    .range__box{
+                        display: flex;
+                        flex-direction: column;
+                        
+                        .down{
+                            display: grid;
+                            place-items: center;
+                            background-color:$color-link-color;
+                            color: white;
+                            width: 30px;
+                            height: 30px;
+                            cursor: pointer;
+                            
+                            &:hover{
+                                background-color:themed('buttondetail') ;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    }

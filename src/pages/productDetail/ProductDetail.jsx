@@ -13,8 +13,8 @@ const ProductDetail = () => {
     const addToCart = () => {
         dispatch(addItem({
             id:id,
-            image:imgUrl,
-            name:productName,
+            imgUrl:imgUrl,
+            productName:productName,
             price:price
 
         }))
