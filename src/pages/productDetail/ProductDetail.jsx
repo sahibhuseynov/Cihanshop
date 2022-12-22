@@ -15,7 +15,8 @@ const ProductDetail = () => {
             id:id,
             imgUrl:imgUrl,
             productName:productName,
-            price:price
+            price:price,
+            totalPrice:price
 
         }))
         toast('✔️​ Added to bag!', {

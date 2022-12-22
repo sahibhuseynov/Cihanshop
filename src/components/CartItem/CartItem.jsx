@@ -1,18 +1,20 @@
 import React from 'react'
 import {TiDeleteOutline} from 'react-icons/ti'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import './CartItem.scss'
 import { IoIosArrowUp,IoIosArrowDown  } from 'react-icons/io';
 import { motion } from 'framer-motion';
+import { removeItem } from '../../redux/slices/cartSlice';
 const CartItem = () => {
     const cart = useSelector((state) => state.cart.cartItems)
+    const dispatch = useDispatch();
   return (
     <div className='CartItem'>
         {
             cart.map((item) => (
                 <div className='cart__item'>
                     <div className="left">
-                        <TiDeleteOutline size={25}  />
+                        <TiDeleteOutline size={25} onClick={() => dispatch(removeItem(item.id))}  />
                         <div className="cart__img">
                             <img src={item.imgUrl} alt="" />
                         </div>
@@ -27,7 +29,11 @@ const CartItem = () => {
                         <div className="cart__range">
                             <span>{item.quantity}</span>
                             <div className="range__box">
-                                <motion.div whileTap={{scale:1.7}} className="down">
+                                <motion.div 
+                                 whileTap={{scale:1.7}} 
+                                 className="down"
+                                 
+                                 >
                                     <IoIosArrowUp />
                                 </motion.div>
                                 <motion.div whileTap={{scale:1.7}} className="down">
@@ -37,7 +43,7 @@ const CartItem = () => {
                         </div>
 
                         <div className="total">
-                            $555
+                            <span>{item.totalPrice}</span>
                         </div>
                     </div>
                 </div>
