@@ -1,0 +1,51 @@
+/* font gelecey */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+}
+@media (min-width: 480px) {
+  body {
+    font-size: calc( 16px + (17.6 - 16) * ((100vw - 480px) / (1024 - 480)));
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.1rem;
+  }
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+@media (min-width: 480px) {
+  h1 {
+    font-size: calc( 24px + (112 - 24) * ((100vw - 480px) / (1024 - 480)));
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 7rem;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}/*# sourceMappingURL=index.css.map */

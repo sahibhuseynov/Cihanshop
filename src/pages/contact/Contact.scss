@@ -1,22 +1,116 @@
 @import '../../sass/index.scss';
 
 .contact{
+    @include themify($themes) {
     padding: 0px 40px;
+    background-color: themed('bg');
+    color: themed('textColor');
     .content{
         padding: 100px 0px;
-        display: flex;
-        justify-content: space-evenly;
+        display: grid;
+       
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 40px;
+        @include tablet {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          @include mobile {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+          }
         
         .item{
             display: flex;
+            
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 10px;
-            width: 200px;
+            
             height: 200px;
-            border: 1px solid gray;
+            border: 1px solid $color-btn-border;
+
+            span{
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
         }
     }
+
+    .form__control{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 100px;
+        h2{
+            font-size: 44px;
+            margin-bottom: 36px;
+        }
+        form {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            @include tablet {
+                width: 100% !important;
+              }
+            
+            input{
+                width: 100%;
+                background-color: themed('inputbg');
+                border: none;
+                outline: none;
+                font-size: 15px;
+                padding: 15px;
+                
+                
+                
+                &:focus{
+                    background-color: white;
+                    outline: 2px solid black;
+                }
+            }
+            textarea{
+                padding: 15px;
+                font-size: 15px;
+                outline: none;
+                background-color: themed('inputbg');
+                border: none;
+                &:focus{
+                    background-color: white;
+                    outline: 2px solid black;
+                }
+            }
+
+            button{
+                width: 170px;
+                    padding: 20px ;
+                    background-color: transparent;
+                    border: 3px solid $color-btn-border;
+                    transition: $transition;
+                    color: themed('textColor');
+                    cursor: pointer;
+                    &:hover{
+                        background-color:themed('hover');
+                        color: white;
+                        border:3px solid $color-hover-color
+                    }
+                    @include mobile {
+                        width: 100% !important;
+                      }
+            }
+            .form__header{
+                display: flex;
+                gap: 40px;
+                @include tablet {
+                    flex-direction: column;
+                    gap: 15px;
+                  }
+             .left, .right{
+                width: 100%;
+             }
+            }
+        }
+    }
+}
 }
