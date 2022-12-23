@@ -21,7 +21,7 @@ const Layout = () => {
   const mode = useSelector((state) => state.dark.darkmode)
   
   return (
-   <div className={`theme-${mode ? 'dark': 'light'}`}>
+   <div className={`theme-${mode ? 'dark': 'light'} ` }>
       <ScrollToTop>
         <Navbar />
         <Outlet />

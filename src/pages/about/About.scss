@@ -4,6 +4,7 @@
         padding: 40px;
         background-color: themed('bg');
         color: themed('textColor');
+        transition: $transition;
         .hero{
             display: flex;
             margin-bottom: 40px;

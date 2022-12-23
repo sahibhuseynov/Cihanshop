@@ -40,7 +40,9 @@ const CartItem = () => {
             <div className="cart__range">
               <span>{item.quantity}</span>
               <div className="range__box">
-                <motion.div whileTap={{ scale: 1.7 }} className="down">
+                <motion.div whileTap={{ scale: 1.7 }}
+                
+                className="down">
                   <IoIosArrowUp />
                 </motion.div>
                 <motion.div whileTap={{ scale: 1.7 }} className="down">

@@ -3,12 +3,13 @@ import { BiUser } from "react-icons/bi";
 import { BsBagCheck,BsMoon,BsSun} from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import "./Navbar.scss";
-import { useState } from "react";
+import { useState,useRef,useEffect } from "react";
 import { motion } from "framer-motion";
 import Hamburger from 'hamburger-react'
 import { useDispatch } from "react-redux";
 import { on } from "../../redux/slices/darkSlice";
 import { useSelector } from "react-redux";
+import personImg1 from "../../assets/image/person1.webp";
 const menu = [
       {
         path:'/login',
@@ -20,7 +21,10 @@ const menu = [
       }
 
 ];
+
+
 const Navbar = () => {
+  const headerRef = useRef(null)
   const mode = useSelector((state) => state.dark.darkmode)
   const totalQuantity = useSelector((state) => state.cart.totalQuantity )
   const [open, setOpen] = useState(false);
@@ -32,8 +36,24 @@ const Navbar = () => {
     dispatch(on())
   }
 
+  const stickyHeaderFunc = () => {
+    window.addEventListener('scroll', () => {
+      if(document.body.scrollTop > 360  || document.documentElement.scrollTop
+      > 360  ){
+        headerRef.current.classList.add('sticky__header')
+      }else{
+        headerRef.current.classList.remove('sticky__header')
+      }
+    })
+  }
+
+  useEffect(() => {
+    stickyHeaderFunc()
+    return () => window.removeEventListener('scroll',stickyHeaderFunc())
+  },[])
+
   return (
-    <div className="navbar">
+    <div className="navbar " ref={headerRef}>
       <div className="wrapper">
         <div className="left">
           <div className="item">
@@ -100,17 +120,38 @@ const Navbar = () => {
         <div className="mobile__content">
           <motion.div whileTap={{scale:1.7}} className="item itemdark" onClick={toogleMode}>
                {
-                mode ?  <BsSun size={25} /> : <BsMoon size={25} />
+                mode ?  <BsSun size={35} /> : <BsMoon size={35} />
                }
             </motion.div>
-          <Hamburger  toggled={isOpen} toggle={setIsOpen} />
+            <div>
+        <Hamburger  toggled={isOpen} toggle={setIsOpen}  />
         </div>
+        </div>
+        
         </div>
        
       </div>
+        
+     {
+      isOpen && (
+        <div className="sidebar__menu">
+        <div className="menu__header">
+            <div className="user__img">
+              <img src={personImg1} alt="" />
+            </div>
+            <div className="user__about">
+              <h4>SAHIB HUSEYNOV</h4>
+              <span>sahib@demo.com</span>
+            </div>
+        </div>
 
+        
+      </div>
+      )
+     }
       
     </div>
+    
   );
 };
 

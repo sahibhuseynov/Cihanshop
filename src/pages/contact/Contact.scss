@@ -5,6 +5,7 @@
     padding: 0px 40px;
     background-color: themed('bg');
     color: themed('textColor');
+    transition: $transition;
     .content{
         padding: 100px 0px;
         display: grid;

@@ -4,7 +4,7 @@
     @include themify($themes) {
         background-color: themed('bg');
          padding: 20px 40px;
-
+         transition: $transition;
          .detail__header{
             display: flex;
             margin-top: 80px;

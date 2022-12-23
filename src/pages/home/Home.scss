@@ -3,6 +3,7 @@
     @include themify($themes) { 
         background-color: themed('bg');
         color: themed('textColor');
+        transition: $transition;
     .hero{
         padding: 70px 0;
         width: min(100% - 15px ,840px);

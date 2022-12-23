@@ -3,7 +3,7 @@
 .inner{
     @include themify($themes) { 
     padding: 40px ;
-    
+    transition: $transition;
     .wrapper{
        display: grid;
        align-items: center;

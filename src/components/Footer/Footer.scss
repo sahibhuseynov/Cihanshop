@@ -3,7 +3,7 @@
 .footer{
     @include themify($themes) {
         background-color: themed('footerbg');
-
+        transition: $transition;
     color: themed('foottext');
     padding:60px 40px 20px;
 

@@ -40,7 +40,11 @@ const cartSlice = createSlice({
         const itemID = action.payload
         state.cartItems = state.cartItems.filter((item) => item.id !== itemID)
         state.totalQuantity--
-    }
+    },
+
+   
+
+
   }
 });
 
