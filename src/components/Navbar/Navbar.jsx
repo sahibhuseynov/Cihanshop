@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { BiUser } from "react-icons/bi";
-import { BsBagCheck,BsMoon,BsSun} from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
+import { BiUser ,} from "react-icons/bi";
+import { BsBagCheck,BsMoon,BsSun,BsSearch} from "react-icons/bs";
+import { AiOutlineHeart,AiOutlineHome,AiOutlineShopping,AiOutlineInfoCircle, AiOutlineUser} from "react-icons/ai";
+import {GrContact} from 'react-icons/gr'
 import "./Navbar.scss";
 import { useState,useRef,useEffect } from "react";
 import { motion } from "framer-motion";
@@ -132,23 +133,54 @@ const Navbar = () => {
        
       </div>
         
-     {
-      isOpen && (
-        <div className="sidebar__menu">
-        <div className="menu__header">
-            <div className="user__img">
-              <img src={personImg1} alt="" />
-            </div>
-            <div className="user__about">
-              <h4>SAHIB HUSEYNOV</h4>
-              <span>sahib@demo.com</span>
-            </div>
-        </div>
+     
+     
+       
+          <div className={isOpen ? 'sidebar__menu active': 'sidebar__menu'}>
+          <div className="menu__header">
+              <div className="user__img">
+                <img src={personImg1} alt="" />
+              </div>
+              <div className="user__about">
+                <h4>SAHIB HUSEYNOV</h4>
+                <span>sahib@demo.com</span>
+              </div>
+          </div>
 
-        
-      </div>
-      )
-     }
+          <div className="menu__navigation">
+            <div className="item">
+              <BsSearch />
+              <input type="text" placeholder="Search..."/>
+            </div>
+            <div className="item">
+              <AiOutlineHome />
+              <span>Dashboard</span>
+            </div>
+            <div className="item">
+              <AiOutlineShopping />
+              <span>Shop</span>
+            </div>
+            <div className="item">
+              <AiOutlineInfoCircle />
+              <span>About</span>
+            </div>
+            <div className="item">
+              <GrContact />
+              <span>Contact</span>
+            </div>
+            <div className="item">
+              <AiOutlineUser />
+              <span>Sign In</span>
+            </div>
+            <div className="item"></div>
+          </div>
+  
+          
+        </div>
+       
+       
+      
+     
       
     </div>
     
