@@ -11,7 +11,8 @@ $themes: (
     inputbg:#e9e8e7,
     hover:$color-hover-color,
     slider:#f8f7f6,
-    buttondetail:#242424
+    buttondetail:#242424,
+    side-inpt:#f5f5f5
   ),
   dark: (
     textColor: white,
@@ -25,6 +26,7 @@ $themes: (
     hover:#000,
     slider:#000,
     buttondetail:rgb(30, 29, 29),
+    side-inpt:#424444
   ),
 );
 

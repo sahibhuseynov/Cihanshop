@@ -1,5 +1,5 @@
 @import "../../sass/index.scss";
-.sticky__header{
+.sticky__header {
   width: 100%;
   height: 80px;
   position: sticky;
@@ -9,16 +9,15 @@
   box-shadow: 3px 3px 8px -3px #ddd;
   border: 0 !important;
   transition: $transition;
- 
 }
-.navbar  {
+.navbar {
   @include themify($themes) {
     height: 80px;
-    background-color: themed('bg');
-    color: themed('textColor');
+    background-color: themed("bg");
+    color: themed("textColor");
     border-bottom: 1px solid #ddd;
     transition: $transition;
-    
+
     .wrapper {
       @include flex(center, space-between);
       padding: 20px 40px;
@@ -52,7 +51,6 @@
             }
           }
         }
-        
       }
 
       .center {
@@ -61,13 +59,13 @@
       }
 
       .right {
-        @include flex(center,end);
+        @include flex(center, end);
         flex: 1;
         gap: 15px;
         @include desktop {
           display: none;
         }
-       
+
         .item {
           position: relative;
           display: flex;
@@ -109,85 +107,96 @@
       }
 
       .mobile__menu {
-        
+        z-index: 99;
         display: none;
-        .mobile__content{
+        .mobile__content {
           display: flex;
           align-items: center;
           gap: 10px;
 
-          .item{
+          .item {
             margin-top: 5px;
           }
-          .hamburger-react{
-            z-index: 99;
-          }
+
           @include desktop {
             flex-direction: row-reverse;
-            
           }
         }
         @include desktop {
           display: flex;
-          
         }
       }
-     
     }
-    
-  
-      .sidebar__menu{
-        background-color: rebeccapurple;
-        width: 300px;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: -100%;
-        z-index: 5;
-        padding: 70px 50px;
-        transition: 850ms;
-        .menu__header{
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          .user__img{
-           
-            width: 44px;
-            height: 44px;
-            border-radius: 8px;
-            overflow: hidden;
-            
-            img{
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-          }
-          .user__about{
-           
-  
-            h4{
-              font-size: 16px;
-              font-weight: 700;
-  
-            }
-            span{
-              font-size: 14px;
-              font-weight: 400;
-               
-            }
+
+    .sidebar__menu {
+      background-color: themed("bg");
+      color: themed("textColor");
+      width: 300px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: -350px;
+      z-index: 5;
+      padding: 100px 50px 47px;
+      transition: $transition;
+      overflow: scroll;
+      .menu__header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 56px;
+        .user__img {
+          width: 44px;
+          height: 44px;
+          border-radius: 8px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
-        
+        .user__about {
+          h4 {
+            font-size: 16px;
+            font-weight: 700;
+          }
+          span {
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
       }
-      .sidebar__menu.active{
-        left: 0;
-         transition: 350ms;
-       
+
+      .menu__navigation {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        .searchitem {
+          background-color: themed("side-inpt");
+        }
       }
-      
-     
+      .item {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        padding: 14px 16px;
+        border-radius: 8px;
+
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          background-color: transparent;
+        }
+        span {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
     }
   }
- 
-
+}
