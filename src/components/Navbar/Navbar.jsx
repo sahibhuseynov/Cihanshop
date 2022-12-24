@@ -141,8 +141,9 @@ const Navbar = () => {
 
       {isOpen && (
         <motion.div
-          className="sidebar__menu"
+          className="sidebar__menu "
           animate={{ x: 350 }}
+          
           transition={{
             delay: 0,
             x: { duration: 0.7 },

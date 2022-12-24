@@ -9,22 +9,22 @@ const Menu = [
     },
     {
         display: "Shop",
-        path: '/Shop',
+        path: '/cart',
         icon:<AiOutlineShopping />
     },
     {
         display: "About",
-        path: '/About',
+        path: '/about',
         icon:<AiOutlineInfoCircle  />
     },
     {
         display: "Contact",
-        path: '/About',
+        path: '/contact',
         icon:<MdOutlineContactSupport  />
     },
     {
         display: "Sign In",
-        path: '/About',
+        path: '/register',
         icon:<AiOutlineUser  />
     },
 ]
