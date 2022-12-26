@@ -58,12 +58,15 @@
             
             input{
                 width: 100%;
-                background-color: themed('inputbg');
+                background-color: themed('side-inpt');
+               
                 border: none;
                 outline: none;
                 font-size: 15px;
                 padding: 15px;
-                
+                &::placeholder{
+                    color: themed('textColor');
+                }
                 
                 
                 &:focus{
@@ -75,11 +78,14 @@
                 padding: 15px;
                 font-size: 15px;
                 outline: none;
-                background-color: themed('inputbg');
+                background-color: themed('side-inpt');
                 border: none;
                 &:focus{
                     background-color: white;
                     outline: 2px solid black;
+                }
+                &::placeholder{
+                    color: themed('textColor');
                 }
             }
 

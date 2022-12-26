@@ -5,7 +5,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 
 import "./Navbar.scss";
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Hamburger from "hamburger-react";
 import { useDispatch } from "react-redux";
 import { on } from "../../redux/slices/darkSlice";
@@ -25,6 +25,7 @@ const menu = [
 ];
 
 const Navbar = () => {
+  console.log("Navbar render oldu");
   const headerRef = useRef(null);
   const mode = useSelector((state) => state.dark.darkmode);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
@@ -138,21 +139,22 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      {isOpen && (
-        <motion.div
-          className="sidebar__menu "
-          animate={{ x: 350 }}
-          
-          transition={{
-            delay: 0,
-            x: { duration: 0.7 },
-            default: { ease: "linear" },
-          }}
-        >
-          <SideBar isOpen={isOpen} />
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="sidebar__menu "
+            animate={{ x: 350 }}
+            transition={{
+              delay: 0,
+              x: { duration: 0.7 },
+              default: { ease: "linear" },
+            }}
+            exit={{ x: -300 }}
+          >
+            <SideBar />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
