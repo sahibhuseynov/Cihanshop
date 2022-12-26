@@ -185,12 +185,18 @@
         height: 50px;
         padding: 14px 16px;
         border-radius: 8px;
-
+        transition: $transition;
+        box-shadow: $box-shadow;
+        &:last-child:hover{
+          background-color: rgb(94, 115, 252) ;
+          color: #fff;
+        }
         input {
           width: 100%;
           border: none;
           outline: none;
           background-color: transparent;
+          color: themed(textColor);
         }
         span {
           font-size: 16px;
