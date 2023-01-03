@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import "./Slider.scss";
-import { motion } from "framer-motion";
+import { motion} from "framer-motion";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import watch1 from '../../assets/image/watch-1.webp'
 import watch2 from '../../assets/image/watch-2.webp'
@@ -25,6 +25,7 @@ const slides = [
 
 const Slider = () => {
   const [index, setIndex] = useState(0);
+  
   const { img, title, title2 } = slides[index];
 
   const nextPerson = () => {
@@ -47,11 +48,14 @@ const Slider = () => {
     });
     
   };
+
+  
+ 
   return (
     <div className="slider">
       <motion.div className="slides" initial={{ opacity: 0, scale: 0.5 }}
     animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.5, }} >
+    transition={{ duration: 0.5, }}   >
         <h1>{title}</h1>
         <motion.img
           animate={{ y: [-25,25]}}

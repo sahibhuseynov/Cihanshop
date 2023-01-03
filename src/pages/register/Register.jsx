@@ -5,6 +5,7 @@ import registerCommon from '../../assets/image/common.webp'
 import { useForm } from "react-hook-form";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Helmet from '../../components/Helmet/Helmet';
 
 /* bura calismir form hook */
 const schema = zod.object({
@@ -20,7 +21,7 @@ const Register = () => {
   }
   return (
     
-   <>
+   <Helmet title={'Register'}>
         <CommonSection title='Create Account' img={registerCommon}/>
         <section className='register'>
 
@@ -40,7 +41,7 @@ const Register = () => {
                 </form>
             </div>
         </section>
-   </>
+   </Helmet>
   )
 }
 

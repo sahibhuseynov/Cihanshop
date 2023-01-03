@@ -4,13 +4,14 @@ import './Cart.scss'
 import cartcommon from '../../assets/image/common.webp'
 import { useSelector,useDispatch } from 'react-redux'
 import CartItem from './../../components/CartItem/CartItem';
+import Helmet from './../../components/Helmet/Helmet';
 const Cart = () => {
   const cart = useSelector((state) => state.cart.totalQuantity)
   console.log(cart)
   const dispatch = useDispatch();
 
   return (
-    <>
+    <Helmet title={'Cart'}>
         <CommonSection title='Your cart' img={cartcommon} />
             <section id={cart===0 ? 'cart' : ''}>
                {
@@ -25,7 +26,7 @@ const Cart = () => {
                   </div>
                }
             </section>
-    </>
+    </Helmet>
     
   )
 }

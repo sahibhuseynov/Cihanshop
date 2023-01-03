@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import CommonSection from "../../components/UI/CommonSection/CommonSection";
 import './Contact.scss'
 import contactCommon from '../../assets/image/about.jpg'
+import Helmet from "../../components/Helmet/Helmet";
 const Contact = () => {
   return (
-    <>
+    <Helmet title={'Contact'}>
       <CommonSection title="Contacts" img={contactCommon} />
       <section className="contact">
         <div className="content">
@@ -62,7 +63,7 @@ const Contact = () => {
 
       </section>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.8919915106253!2d28.618920414785524!3d41.07135352349096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b5598e512bfa95%3A0x94160fc487000c48!2sCihanShop!5e0!3m2!1str!2str!4v1671728014757!5m2!1str!2str" width='100%' height="450" style={{border:'0'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </>
+    </Helmet>
   );
 };
 

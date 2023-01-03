@@ -6,6 +6,7 @@ import Card from '../../components/UI/Card/Card';
 import productsData from '../../assets/data/products'
 import homeImg from '../../assets/image/home1.webp'
 import homeImg3 from '../../assets/image/home3.webp'
+import Helmet from '../../components/Helmet/Helmet';
 
 
 
@@ -22,49 +23,51 @@ const Home = () => {
     setData2(filterData2)
   },[])
   return (
-    <div className='home'>
-      <Slider />
-      <section className='hero'>
-       
-          <h1>The Lawson Collection</h1>
-          <p>We are happy to introduce the new Lawson Collection. These are three quartz models designed with simplicity and elegance kept in mind. They come in different sizes and colors, and all feature a stainless steel back — leaving enough space for a personalized engraving. The engraving service is complimentary with any watch from the Lawson series.</p>
+  <Helmet title={'Home'}>
+      <div className='home'>
+        <Slider />
+        <section className='hero'>
+         
+            <h1>The Lawson Collection</h1>
+            <p>We are happy to introduce the new Lawson Collection. These are three quartz models designed with simplicity and elegance kept in mind. They come in different sizes and colors, and all feature a stainless steel back — leaving enough space for a personalized engraving. The engraving service is complimentary with any watch from the Lawson series.</p>
+          
+        </section>
+         <Card data={data} />
         
-      </section>
-       <Card data={data} />
-      
-      <section className='rewiews'>
-          <div className="wrapper">
-            <div className="left">
-              <h2>Swiss Essence</h2>
-              <p>The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?</p>
-              <button>LEARN MORE</button>
+        <section className='rewiews'>
+            <div className="wrapper">
+              <div className="left">
+                <h2>Swiss Essence</h2>
+                <p>The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?</p>
+                <button>LEARN MORE</button>
+              </div>
+              <div className="right">
+                <img src={homeImg} alt="" />
+              </div>
             </div>
-            <div className="right">
-              <img src={homeImg} alt="" />
+        </section>
+        <Inner />
+  
+        <section className='rewiews2'>
+            <div className="wrapper">
+              <div className="left">
+                <h2>Swiss Essence</h2>
+                <p>The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?</p>
+                <button>LEARN MORE</button>
+              </div>
+              <div className="right">
+                <img src={homeImg3} alt="" />
+              </div>
             </div>
-          </div>
-      </section>
-      <Inner />
-
-      <section className='rewiews2'>
-          <div className="wrapper">
-            <div className="left">
-              <h2>Swiss Essence</h2>
-              <p>The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?</p>
-              <button>LEARN MORE</button>
-            </div>
-            <div className="right">
-              <img src={homeImg3} alt="" />
-            </div>
-          </div>
-      </section>
-
-      <div className='cards2'>
-        <h2>Our Bestsellers</h2>
-        <Card data={data2} />
-      <button>SHOW ALL</button>
+        </section>
+  
+        <div className='cards2'>
+          <h2>Our Bestsellers</h2>
+          <Card data={data2} />
+        <button>SHOW ALL</button>
+        </div>
       </div>
-    </div>
+  </Helmet>
   )
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import "./Card.scss";
 import {AiFillStar} from 'react-icons/ai'
 import { Link } from 'react-router-dom';
-
+import {motion} from 'framer-motion'
 const Card = ({ data }) => {
  
   return (

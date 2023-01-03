@@ -3,9 +3,10 @@ import './Login.scss'
 import CommonSection from './../../components/UI/CommonSection/CommonSection';
 import { Link } from 'react-router-dom';
 import loginCommon from '../../assets/image/common.webp'
+import Helmet from '../../components/Helmet/Helmet';
 const Login = () => {
   return (
-  <>
+  <Helmet title={'Login'}>
         <CommonSection title={'Account'} img={loginCommon}/>
         <section className='login'>
             <div className="context">
@@ -17,7 +18,7 @@ const Login = () => {
                 <Link className='link' to='/register'><span>Create account </span></Link>
             </div>
         </section>
-  </>
+  </Helmet>
   )
 }
 
