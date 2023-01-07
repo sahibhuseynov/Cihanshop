@@ -8,17 +8,27 @@ import * as yup from 'yup';
 
 import Helmet from '../../components/Helmet/Helmet';
 
+
 const schema = yup.object({
-  firstname: yup.string().required('Adınız 1 ilə 32 simvol arasında olmalıdır!'),
+  fullname: yup.string().required('Adınız 1 ilə 32 simvol arasında olmalıdır!'),
   lastname: yup.string().required('Adınız 1 ilə 32 simvol arasında olmalıdır!'),
-  email: yup.string().email('E-mail ünvanı səhvdir!').required('Email xanasi doldurulmuyub!'),
-  password: yup.string().required('Sifre xanasi doldurulmuyub!  ').min(8, 'Şifrə çox qısadır. Minimal şifrənin uzunluğu: 8 simvol.'),
+  email: yup.string().email('E-mail ünvanı səhvdir!').required('Email xanasi doldurulmayib!'),
+  password: yup.string().required('Sifre xanasi doldurulmayib!  ').min(8, 'Şifrə çox qısadır. Minimal şifrənin uzunluğu: 8 simvol.'),
 })
 .required();
 
 const Register = () => {
+
   const {register,handleSubmit,formState:{errors}} = useForm({resolver:yupResolver(schema)})
-  const onSubmit = data => console.log(data)
+   const onSubmit = data => console.log(data)
+  
+
+  
+
+  
+
+  
+  
   return (
     
    <Helmet title={'Register'}>
@@ -28,12 +38,12 @@ const Register = () => {
             <div className="context">
                 <h2>Create Account</h2>
                 <form id='form' onSubmit={handleSubmit(onSubmit)}>
-                {errors.firstname && (
-                    <span className='err_msg'>{errors.firstname.message}</span>
+                {errors.fullname && (
+                    <span className='err_msg'>{errors.fullname.message}</span>
                    )}
                   <input type="text" 
                    placeholder='First Name'
-                   {...register('firstname',{required:true})}
+                   {...register('fullname',{required:true})}
                    />
 
                     {errors.lastname && (

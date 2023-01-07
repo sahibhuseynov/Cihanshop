@@ -9,7 +9,7 @@ const router = express.Router();
 router.post("/signup", async (req, res)=>{
     try {
         console.log(req.body)
-        const { fullname, password, phoneNumber, email } = req.body;
+        const { fullname,lastname, password, email } = req.body;
         
         const userExists = await User.findOne({ email })
         if(userExists)
@@ -21,7 +21,7 @@ router.post("/signup", async (req, res)=>{
             fullname,
             email,
             password: hashedPassword,
-            phoneNumber
+            lastname
         })
 
         return res.status(201).json(createdUser);
