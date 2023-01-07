@@ -12,17 +12,10 @@ import { on } from "../../redux/slices/darkSlice";
 import { useSelector } from "react-redux";
 
 import SideBar from "./../UI/SideBar/SideBar";
+import { addUser } from "../../redux/slices/userSlice";
 
-const menu = [
-  {
-    path: "/login",
-    display: "SIGN IN",
-  },
-  {
-    path: "/register",
-    display: "CREATE",
-  },
-];
+
+
 
 const Navbar = () => {
   console.log("Navbar render oldu");
@@ -56,6 +49,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", stickyHeaderFunc());
   }, []);
 
+
+  const user = useSelector((state) => state.user)
+  const clearUser = () => {
+    
+    dispatch(addUser(null))
+    localStorage.removeItem('user')
+    console.log(user)
+  }
   return (
     <div className="navbar " ref={headerRef}>
       <div className="wrapper">
@@ -103,11 +104,13 @@ const Navbar = () => {
                 className="dropdown"
               >
                 <ul>
-                  {menu.map((item, i) => (
-                    <Link className="link" to={item.path}>
-                      <li key={i}>{item.display}</li>
-                    </Link>
-                  ))}
+                  {
+                    //user null problem 
+                    user.user ? <Link className="link" onClick={clearUser}>Sign out</Link> : <Link className="link" to='/signin'>Sign in</Link>
+                   
+                  }
+                  
+                   <Link className="link"  to='/register'>Create</Link> 
                 </ul>
               </motion.div>
             )}

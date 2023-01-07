@@ -11,6 +11,14 @@
             flex-direction: column;
             align-items: center;
             padding: 100px 0 ;
+
+            h2{
+                font-size: 52px;
+                font-weight: 400;
+                line-height: 1.2em;
+                margin-bottom: 10px;
+                color: themed('textColor') !important;
+            }
             form{
                 display: flex;
                 flex-direction: column;
@@ -29,13 +37,7 @@
                     }
                 }
     
-                h2{
-                    font-size: 52px;
-                    font-weight: 400;
-                    line-height: 1.2em;
-                    margin-bottom: 10px;
-                    color: themed('textColor');
-                }
+                
                 button{
                     padding: 20px 30px;
                 background-color:$color-hover-color;
@@ -50,6 +52,11 @@
                             color: white;
                             
                         }
+                }
+                .err_msg{
+                    font-size: 14px;   
+                    color: red;
+                    margin-bottom: 5px;
                 }
             }
         }
