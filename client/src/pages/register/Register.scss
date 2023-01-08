@@ -1,6 +1,7 @@
 @import '../../sass/index.scss';
 .register{
     @include themify($themes) {
+       min-height:600px ;
         display: flex;
         align-items: center;
         justify-content: center;

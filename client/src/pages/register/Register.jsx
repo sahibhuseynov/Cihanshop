@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { signup } from '../../axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 const schema = yup.object({
   fullname: yup.string().required('Adınız 1 ilə 32 simvol arasında olmalıdır!'),
@@ -21,13 +22,17 @@ const schema = yup.object({
 .required();
 
 const Register = () => {
+  const [loading,setLoading] = useState(false)
   const navigate = useNavigate();
   const {register,handleSubmit,formState:{errors}} = useForm({resolver:yupResolver(schema)})
 
    const onSubmit = data => signup(data).then((res) =>{
-     toast.success(res.data.message)
-     //burda ele elemey lazimdiki message gorsensin sora navigate olsun
-     navigate('/signin')
+     toast.success(res.data.message);
+    setLoading(true);
+     setTimeout(() => {
+      navigate('/signin')
+      setLoading(false)
+     }, 3500);
      
    })
    .catch((err) => toast.error(err.response.data.message))
@@ -45,8 +50,11 @@ const Register = () => {
    <Helmet title={'Register'}>
         <CommonSection title='Create Account' img={registerCommon}/>
         <section className='register'>
+       
   <Toaster />
-            <div className="context">
+            {
+              loading ? <Spinner /> :
+              <div className="context">
                 <h2>Create Account</h2>
                 <form id='form' onSubmit={handleSubmit(onSubmit)}>
                 {errors.fullname && (
@@ -86,6 +94,7 @@ const Register = () => {
                   <button type='submit'>CREATE</button>
                 </form>
             </div>
+            }
         </section>
    </Helmet>
   )
