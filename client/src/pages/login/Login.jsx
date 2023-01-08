@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { login } from './../../axios/index';
 import { useSelector,useDispatch } from 'react-redux';
 import { addUser } from '../../redux/slices/userSlice';
+import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
 
 const [formData,setFormData] = useState({
@@ -24,6 +25,7 @@ const user = useSelector((state) => state.user)
   <Helmet title={'Login'}>
         <CommonSection title={'Account'} img={loginCommon}/>
         <section className='login'>
+          <Toaster />
             <form 
             onSubmit={(e) => {
               e.preventDefault();
@@ -31,8 +33,9 @@ const user = useSelector((state) => state.user)
                 localStorage.setItem('user',JSON.stringify((res.data.user)))
                 dispatch(addUser(res.data.user))
                 navigate("/")
+                
               })
-              .catch((err) => console.log(err.response.data.message))
+              .catch((err) => toast.error(err.response.data.message))
             }}
             className="context">
                 <h2>Login</h2>

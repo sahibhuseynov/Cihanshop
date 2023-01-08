@@ -13,15 +13,16 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    lastname: {
+        type: String,
+        required: true
+    },
     userType: {
         type: String,
         enum: ['USER', 'ADMIN'],
         default: 'USER'
     },
-    phoneNumber: {
-        type: String,
-        required: true
-    },
+    
 })
 
 export default mongoose.model('User', userSchema)

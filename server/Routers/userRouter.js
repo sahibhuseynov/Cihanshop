@@ -13,7 +13,7 @@ router.post("/signup", async (req, res)=>{
         
         const userExists = await User.findOne({ email })
         if(userExists)
-            return res.status(400).json({ message: 'User already exists.'})
+            return res.status(400).json({ message: 'Kullanici zaten movcut'})
 
         const hashedPassword = await bcrypt.hash(password, 10)
 
@@ -24,7 +24,7 @@ router.post("/signup", async (req, res)=>{
             lastname
         })
 
-        return res.status(201).json(createdUser);
+        return res.status(201).json({message:'Kullanici basariyla olusturludu'});
     } catch (error) {
         console.log(error)
         return res.json({message: "create user failed"})
@@ -37,7 +37,7 @@ router.post("/signin", async (req,res)=>{
         const {email, password} = req.body;
         const user = await User.findOne({email})
         if(!user)
-            return res.status(400).json({message: "user does not exist"})
+            return res.status(400).json({message: "Kullanici movcut degil"})
         
         const isPasswordCorrect = await bcrypt.compare(password, user.password)
         if(!isPasswordCorrect)

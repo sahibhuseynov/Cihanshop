@@ -27,6 +27,7 @@ const Layout = () => {
         <Outlet />
         <Footer />
       </ScrollToTop>
+      
    </div>
   )
 }

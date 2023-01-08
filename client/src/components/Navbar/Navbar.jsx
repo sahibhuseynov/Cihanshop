@@ -18,7 +18,6 @@ import { addUser } from "../../redux/slices/userSlice";
 
 
 const Navbar = () => {
-  console.log("Navbar render oldu");
   const headerRef = useRef(null);
   const mode = useSelector((state) => state.dark.darkmode);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);

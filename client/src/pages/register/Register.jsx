@@ -7,7 +7,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Helmet from '../../components/Helmet/Helmet';
-
+import { useState } from 'react';
+import { signup } from '../../axios';
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object({
   fullname: yup.string().required('Adınız 1 ilə 32 simvol arasında olmalıdır!'),
@@ -18,10 +21,18 @@ const schema = yup.object({
 .required();
 
 const Register = () => {
-
+  const navigate = useNavigate();
   const {register,handleSubmit,formState:{errors}} = useForm({resolver:yupResolver(schema)})
-   const onSubmit = data => console.log(data)
-  
+
+   const onSubmit = data => signup(data).then((res) =>{
+     toast.success(res.data.message)
+     //burda ele elemey lazimdiki message gorsensin sora navigate olsun
+     navigate('/signin')
+     
+   })
+   .catch((err) => toast.error(err.response.data.message))
+    
+   
 
   
 
@@ -34,7 +45,7 @@ const Register = () => {
    <Helmet title={'Register'}>
         <CommonSection title='Create Account' img={registerCommon}/>
         <section className='register'>
-
+  <Toaster />
             <div className="context">
                 <h2>Create Account</h2>
                 <form id='form' onSubmit={handleSubmit(onSubmit)}>

@@ -4,8 +4,10 @@ import Menu from '../../../assets/data/sideBar';
 import { Link } from 'react-router-dom';
 import personImg1 from "../../../assets/image/person1.webp";
 import { BsSearch} from "react-icons/bs";
+import { useSelector } from 'react-redux';
 const SideBar = () => {
-  console.log("sidebar render oldu")
+  const user = useSelector((state) => state.user.user)
+  
     useEffect(() => {
         
         document.body.style.overflow = "hidden"
@@ -20,15 +22,20 @@ const SideBar = () => {
            
          
                 
-                    <div className="menu__header">
-                        <div className="user__img">
-                           <img src={personImg1} alt="" /> 
-                        </div>
-                        <div className="user__about">
-                          <h4>SAHIB HUSEYNOV</h4>
-                          <span>sahib@demo.com</span>
-                        </div>
+                   {
+                    user ?  <div className="menu__header">
+                    <div className="user__img">
+                       <img src={personImg1} alt="" /> 
                     </div>
+                    <div className="user__about">
+                      <h4>
+                         {user.fullname + ' ' + user.lastname}
+                        </h4>
+                      
+                      <span>{user.email}</span>
+                    </div>
+                </div> : ''
+                   }
           
                      <div className="menu__navigation">
                               <div className="item searchitem">
