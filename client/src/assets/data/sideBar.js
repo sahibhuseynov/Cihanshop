@@ -24,7 +24,7 @@ const Menu = [
     },
     {
         display: "Sign In",
-        path: '/register',
+        path: '/signin',
         icon:<AiOutlineUser  />
     },
 ]
