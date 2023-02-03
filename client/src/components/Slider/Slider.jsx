@@ -5,10 +5,14 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import watch1 from '../../assets/image/watch-1.webp'
 import watch2 from '../../assets/image/watch-2.webp'
 import watch3 from '../../assets/image/watch-3.webp'
+import { useTranslation } from 'react-i18next';
+
+
+
 const slides = [
   {
     img:watch1,
-    title: "Luxury ",
+    title:   "Luxury",
     title2: "Brands",
   },
   {
@@ -24,6 +28,9 @@ const slides = [
 ];
 
 const Slider = () => {
+
+const { t, i18n } = useTranslation();
+
   const [index, setIndex] = useState(0);
   
   const { img, title, title2 } = slides[index];
@@ -56,7 +63,7 @@ const Slider = () => {
       <motion.div className="slides" initial={{ opacity: 0, scale: 0.5 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.5, }}   >
-        <h1>{title}</h1>
+        <h1>{t(title)}</h1>
         <motion.img
           animate={{ y: [-25,25]}}
           transition={{  duration: 2, yoyo:Infinity }}
@@ -64,18 +71,18 @@ const Slider = () => {
           src={img}
           alt=""
         />
-        <h1>{title2}</h1>
+        <h1>{t(title2)}</h1>
       </motion.div>
       <div className="buttons">
         <div className="item" onClick={prevPerson}>
           <IoIosArrowBack />
-          <button >PREVIOUS</button>
+          <button >{t("PREVIOUS")}</button>
           <span></span>
         </div>
        
         <div className="item" onClick={nextPerson}>
         <span></span>
-          <button >NEXT</button>
+          <button >{t("NEXT")}</button>
           <IoIosArrowForward />
           
         </div>

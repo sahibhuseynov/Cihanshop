@@ -102,6 +102,19 @@
             color: $color-link-color;
           }
         }
+        .language{
+          width: 25px;
+          height: 25px;
+          border-radius:50%;
+          overflow: hidden;
+          cursor: pointer;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+        }
       }
 
       .mobile__menu {
@@ -114,6 +127,19 @@
 
           .item {
             margin-top: 5px;
+          }
+          .language{
+            width: 35px;
+            height: 35px;
+            border-radius:50%;
+            overflow: hidden;
+            cursor: pointer;
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            
           }
 
           @include desktop {

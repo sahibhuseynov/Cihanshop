@@ -4,18 +4,17 @@ import { BsBagCheck, BsMoon, BsSun } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 
 import "./Navbar.scss";
+import azeflag from "../../assets/image/aze-flag.svg";
+import usaflag from "../../assets/image/usa-flag.png";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Hamburger from "hamburger-react";
 import { useDispatch } from "react-redux";
 import { on } from "../../redux/slices/darkSlice";
 import { useSelector } from "react-redux";
-
+import { useTranslation } from 'react-i18next';
 import SideBar from "./../UI/SideBar/SideBar";
 import { addUser } from "../../redux/slices/userSlice";
-
-
-
 
 const Navbar = () => {
   const headerRef = useRef(null);
@@ -48,31 +47,36 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", stickyHeaderFunc());
   }, []);
 
-
-  const user = useSelector((state) => state.user)
+  const user = useSelector((state) => state.user);
   const clearUser = () => {
-    
-    dispatch(addUser(null))
-    localStorage.removeItem('user')
-    console.log(user)
+    dispatch(addUser(null));
+    localStorage.removeItem("user");
+    console.log(user);
+  };
+
+
+  const { t, i18n } = useTranslation();
+
+  const clickLanguage = () => {
+    i18n.changeLanguage(i18n.language === "en" ? "az" : "en");
   }
   return (
-    <div className="navbar " ref={headerRef}>
+    <motion.div className="navbar " ref={headerRef}>
       <div className="wrapper">
         <div className="left">
           <div className="item">
             <Link className="link" to="/product">
-              SHOP
+              {t("SHOP")}
             </Link>
           </div>
           <div className="item">
             <Link className="link" to="/about">
-              ABOUT
+              {t("ABOUT")}
             </Link>
           </div>
           <div className="item">
             <Link className="link" to="/contact">
-              CONTACT
+              {t("CONTACT")}
             </Link>
           </div>
 
@@ -94,7 +98,7 @@ const Navbar = () => {
         <div className="right">
           <div className="item" onClick={() => setOpen(!open)}>
             <BiUser />
-            <span>ACCOUNT</span>
+            <span>{t('ACCOUNT')}</span>
             {open && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -104,30 +108,50 @@ const Navbar = () => {
               >
                 <ul>
                   {
-                    //user null problem 
-                    user.user ? <Link className="link" onClick={clearUser}>Sign out</Link> : <Link className="link" to='/signin'>Sign in</Link>
-                   
+                    //user null problem
+                    user.user ? (
+                      <Link className="link" onClick={clearUser}>
+                        Sign out
+                      </Link>
+                    ) : (
+                      <Link className="link" to="/signin">
+                        Sign in
+                      </Link>
+                    )
                   }
-                  
-                   <Link className="link"  to='/register'>Create</Link> 
+
+                  <Link className="link" to="/register">
+                    Create
+                  </Link>
                 </ul>
               </motion.div>
             )}
           </div>
           <div className="item">
             <AiOutlineHeart />
-            <span>WISHLIST</span>
+            <span>{t('WISHLIST')}</span>
           </div>
           <Link className="link" to="/cart">
             <div className="item">
               <BsBagCheck />
-              <span>CART ({totalQuantity})</span>
+              <span>{t('CART')} ({totalQuantity})</span>
             </div>
           </Link>
+
+          <div className="language" onClick={() => clickLanguage()}>
+            {
+              i18n.language === 'az' ? <img src={azeflag} alt="aze" /> : <img src={usaflag} alt="usa" />
+            }
+          </div>
         </div>
 
         <div className="mobile__menu">
           <div className="mobile__content">
+          <div className="language" onClick={() => clickLanguage()}>
+            {
+              i18n.language === 'az' ? <img src={azeflag} alt="aze" /> : <img src={usaflag} alt="usa" />
+            }
+          </div>
             <motion.div
               whileTap={{ scale: 1.7 }}
               className="item itemdark"
@@ -138,6 +162,7 @@ const Navbar = () => {
             <div>
               <Hamburger toggled={isOpen} toggle={setIsOpen} />
             </div>
+          
           </div>
         </div>
       </div>
@@ -157,7 +182,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
