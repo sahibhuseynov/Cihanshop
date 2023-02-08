@@ -82,7 +82,7 @@
             display: flex;
             justify-content: space-around;
             @include mobile {
-                flex-direction: column;
+                // flex-direction: column;
                 gap: 20px;
               }
             .links{

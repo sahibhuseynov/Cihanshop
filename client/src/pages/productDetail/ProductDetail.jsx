@@ -1,13 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useParams } from 'react-router-dom'
 import products from '../../assets/data/products'
-import {AiOutlineHeart} from 'react-icons/ai'
+import {AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
 import './ProductDetail.scss'
 import Card from '../../components/UI/Card/Card';
 import { useDispatch } from 'react-redux'
 import { addItem } from '../../redux/slices/cartSlice'
 import { ToastContainer, toast } from 'react-toastify';
 const ProductDetail = () => {
+    const [wishlist, setWishlist] = useState(false)
     const dispatch = useDispatch();
 
     const addToCart = () => {
@@ -34,6 +35,21 @@ const ProductDetail = () => {
     console.log(id)
     const product = products.find((item) => item.id === id)
     const {price,productName,imgUrl,imgDetail1,imgDetail2} = product
+
+    console.log(wishlist)
+    const handlewish = () => {
+        setWishlist(prev => !prev)
+        toast(wishlist ? 'Removed from wishlist!' : '✔️​ Added to wishlist!', {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    }
   return (
     
     <div className='productdetail'>
@@ -79,8 +95,12 @@ const ProductDetail = () => {
                 
             </div>
             <div className="wishlist__icon">
-                <AiOutlineHeart />
-                <button>ADD TO WISHLIST</button>
+                {
+                    wishlist ?  <AiFillHeart color='red' /> : <AiOutlineHeart  />
+                }
+                <button onClick={handlewish}>{
+                    wishlist ? 'REMOVE FROM WISHLIST' : 'ADD TO WISHLIST'
+                }</button>
                 <ToastContainer />
             </div>
         </div>

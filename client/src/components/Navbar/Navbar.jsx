@@ -138,11 +138,11 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="language" onClick={() => clickLanguage()}>
+          <motion.div whileTap={{ scale: 1.7 }} className="language" onClick={() => clickLanguage()}>
             {
               i18n.language === 'az' ? <img src={azeflag} alt="aze" /> : <img src={usaflag} alt="usa" />
             }
-          </div>
+          </motion.div>
         </div>
 
         <div className="mobile__menu">
