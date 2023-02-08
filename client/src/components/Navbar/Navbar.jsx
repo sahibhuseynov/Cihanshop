@@ -15,8 +15,13 @@ import { useSelector } from "react-redux";
 import { useTranslation } from 'react-i18next';
 import SideBar from "./../UI/SideBar/SideBar";
 import { addUser } from "../../redux/slices/userSlice";
+import Modal from './../UI/Modal/Modal';
+
+
 
 const Navbar = () => {
+  const [openModal, setOpenModal] = useState(false);
+  
   const headerRef = useRef(null);
   const mode = useSelector((state) => state.dark.darkmode);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
@@ -60,6 +65,8 @@ const Navbar = () => {
   const clickLanguage = () => {
     i18n.changeLanguage(i18n.language === "en" ? "az" : "en");
   }
+
+  
   return (
     <motion.div className="navbar " ref={headerRef}>
       <div className="wrapper">
@@ -127,10 +134,11 @@ const Navbar = () => {
               </motion.div>
             )}
           </div>
-          <div className="item">
+          <div className="item" onClick={() => setOpenModal(true)} >
             <AiOutlineHeart />
             <span>{t('WISHLIST')}</span>
           </div>
+          <Modal open={openModal} onClose={() => setOpenModal(false)} />
           <Link className="link" to="/cart">
             <div className="item">
               <BsBagCheck />
@@ -178,7 +186,7 @@ const Navbar = () => {
             }}
             exit={{ x: -300 }}
           >
-            <SideBar />
+            <SideBar closeBar={() => setIsOpen(false)} />
           </motion.div>
         )}
       </AnimatePresence>

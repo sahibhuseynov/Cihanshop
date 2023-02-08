@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import personImg1 from "../../../assets/image/person1.webp";
 import { BsSearch} from "react-icons/bs";
 import { useSelector } from 'react-redux';
-const SideBar = () => {
+const SideBar = ({closeBar}) => {
   const user = useSelector((state) => state.user.user)
   
     useEffect(() => {
@@ -46,6 +46,7 @@ const SideBar = () => {
                           Menu.map((item) => (
                               <Link to={item.path}
                               className='link'
+                              onClick={closeBar}
                               >
       
                                   <div className="item">

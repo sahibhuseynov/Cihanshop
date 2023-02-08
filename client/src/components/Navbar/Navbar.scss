@@ -39,6 +39,7 @@
         .item {
           @include flex(center, center);
           cursor: pointer;
+          
           .link {
             text-decoration: none;
             font-size: 14px;
@@ -63,7 +64,9 @@
         @include desktop {
           display: none;
         }
-
+        .customOverlay {
+          background: rgba(36, 123, 160, 0.7);
+        }
         .item {
           position: relative;
           display: flex;
@@ -229,5 +232,7 @@
         }
       }
     }
+    
   }
+  
 }
