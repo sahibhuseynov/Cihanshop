@@ -1,4 +1,4 @@
-# ![WebApp](https://github.com/sahibhuseynov/github-image/blob/master/image/mobile%20(1).png)
+# ![WebApp](https://github.com/sahibhuseynov/github-image/blob/master/image/mac.png)
 # WebApp
 <table>
 <tr>
@@ -10,7 +10,7 @@
 
 
 ## Demo
-Here is a working live demo :  https://iharsh234.github.io/WebApp/
+Here is a working live demo :  https://cihanshop.netlify.app/
 
 
 ## Site
@@ -32,7 +32,7 @@ Currently it is working on all NSE (India) Stocks, BSE (India) Stocks Symbol wil
 ## Mobile support
 The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
 
-![](https://iharsh234.github.io/WebApp/images/demo/mobile.png)
+![](https://github.com/sahibhuseynov/github-image/blob/master/image/demo_landing.jpg)
 
 
 
