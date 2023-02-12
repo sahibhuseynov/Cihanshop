@@ -48,13 +48,16 @@ The website is hosted on GitHub Pages and is automatically deployed when changes
 - React-router-dom
 - React-hook-form
 - Axios
+- Node
+- Mangodb
+- Express
 ## Contributing
 
 If you would like to contribute to the project, please fork the repository and create a pull request with your changes.
 
 ## Author
 
-Sahib Huseynov :  sahibhuseynov41@gmail.com
+Sahib Huseynov 
 
 ## License
 
