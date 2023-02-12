@@ -7,7 +7,7 @@ Here is a working live demo :  https://cihanshop.netlify.app/
 ## Mobile support
 The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
 
-![](https://github.com/sahibhuseynov/github-image/blob/master/image/demo_landing.jpg)
+![](https://github.com/sahibhuseynov/github-image/blob/master/image/demo_landing2.png)
 
 This is a website that displays information about watches. 
 
