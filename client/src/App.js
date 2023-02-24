@@ -13,9 +13,9 @@ import { useSelector } from "react-redux";
 import Cart from "./pages/cart/Cart";
 import Login from "./pages/login/Login";
 import Register from './pages/register/Register';
+import ErrorPage from './pages/error/ErrorPage';
 import ProductDetail from "./pages/productDetail/ProductDetail";
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
 const  Contact = React.lazy(() => import( './pages/contact/Contact'));
 const  Product = React.lazy(() => import('./pages/product/Product') ) 
 const About = loadable(() => import('./pages/about/About'));
@@ -75,6 +75,10 @@ const router = createBrowserRouter([
       {
         path:'/product/:id',
         element:<ProductDetail />
+      },
+      {
+        path:'*',
+        element:<ErrorPage />
       }
 
     ]

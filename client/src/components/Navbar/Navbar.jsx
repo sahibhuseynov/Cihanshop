@@ -35,23 +35,23 @@ const Navbar = () => {
     dispatch(on());
   };
 
-  const stickyHeaderFunc = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 360 ||
-        document.documentElement.scrollTop > 360
-      ) {
-        headerRef.current.classList.add("sticky__header");
-      } else {
-        headerRef.current.classList.remove("sticky__header");
-      }
-    });
-  };
+  // const stickyHeaderFunc = () => {
+  //   window.addEventListener("scroll", () => {
+  //     if (
+  //       document.body.scrollTop > 360 ||
+  //       document.documentElement.scrollTop > 360
+  //     ) {
+  //       headerRef.current.classList.add("sticky__header");
+  //     } else {
+  //       headerRef.current.classList.remove("sticky__header");
+  //     }
+  //   });
+  // };
 
-  useEffect(() => {
-    stickyHeaderFunc();
-    return () => window.removeEventListener("scroll", stickyHeaderFunc());
-  }, []);
+  // useEffect(() => {
+  //   stickyHeaderFunc();
+  //   return () => window.removeEventListener("scroll", stickyHeaderFunc());
+  // }, []);
 
   const user = useSelector((state) => state.user);
   const clearUser = () => {

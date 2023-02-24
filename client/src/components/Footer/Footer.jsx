@@ -1,5 +1,7 @@
 import React from "react";
 import "./Footer.scss";
+
+const year = new Date().getFullYear();
 const Footer = () => {
   return (
     <div className="footer">
@@ -45,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <h5><span>Huseynov © 2022, </span>Powered by Cihanshop</h5>
+      <h5><span>Huseynov © {year}, </span>Powered by Cihanshop</h5>
     </div>
   );
 };
