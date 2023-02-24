@@ -10,7 +10,7 @@ const Card = ({ data }) => {
       <div className="wrapper">
         {data?.map((item) => {
           return (
-            <div className="item" key={item.id}>
+            <div  className="item" key={item.id}>
               
               <img src={item.imgUrl} alt="" />
               <div className="title">

@@ -8,6 +8,8 @@ import homeImg from '../../assets/image/home1.webp'
 import homeImg3 from '../../assets/image/home3.webp'
 import Helmet from '../../components/Helmet/Helmet';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+
 
 
 const Home = () => {
@@ -29,8 +31,12 @@ const Home = () => {
         <Slider />
         <section className='hero'>
          
-            <h1>{t("The Lawson Collection")}</h1>
-            <p>{t("We are happy to introduce the new Lawson Collection. These are three quartz models designed with simplicity and elegance kept in mind. They come in different sizes and colors, and all feature a stainless steel back — leaving enough space for a personalized engraving. The engraving service is complimentary with any watch from the Lawson series.")}</p>
+            <motion.h1  initial={{ opacity: 0, y:70 }} 
+        whileInView={{ opacity: 1, y:0 }}
+      transition={{ duration: 0.7, }}>{t("The Lawson Collection")}</motion.h1>
+            <motion.p initial={{ opacity: 0, y:50 }} 
+        whileInView={{ opacity: 1, y:0 }}
+      transition={{ duration: 0.7, }} >{t("We are happy to introduce the new Lawson Collection. These are three quartz models designed with simplicity and elegance kept in mind. They come in different sizes and colors, and all feature a stainless steel back — leaving enough space for a personalized engraving. The engraving service is complimentary with any watch from the Lawson series.")}</motion.p>
           
         </section>
          <Card data={data} />
@@ -38,8 +44,12 @@ const Home = () => {
         <section className='rewiews'>
             <div className="wrapper">
               <div className="left">
-                <h2>{t("Swiss Essence")}</h2>
-                <p>{t("The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?")}</p>
+                <motion.h2 initial={{ opacity: 0, y:-50 }} 
+        whileInView={{ opacity: 1, y:0 }}
+      transition={{ duration: 1.2, }}  >{t("Swiss Essence")}</motion.h2>
+                <motion.p initial={{ opacity: 0, y:20 }} 
+        whileInView={{ opacity: 1, y:0 }}
+      transition={{ duration: 0.7, }}>  {t("The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?")}</motion.p>
                 <button>{t("LEARN MORE")}</button>
               </div>
               <div className="right">
@@ -52,8 +62,12 @@ const Home = () => {
         <section className='rewiews2'>
             <div className="wrapper">
               <div className="left">
-                <h2>Swiss Essence</h2>
-                <p>The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?</p>
+                <motion.h2 initial={{ opacity: 0, y:-50 }} 
+        whileInView={{ opacity: 1, y:0 }}
+      transition={{ duration: 1.2, }}>Swiss Essence</motion.h2>
+                <motion.p initial={{ opacity: 0, y:30 }} 
+        whileInView={{ opacity: 1, y:0 }}
+      transition={{ duration: 0.7, }}>The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?</motion.p>
                 <button>LEARN MORE</button>
               </div>
               <div className="right">
@@ -63,7 +77,9 @@ const Home = () => {
         </section>
   
         <div className='cards2'>
-          <h2>Our Bestsellers</h2>
+          <motion.h2 initial={{ opacity: 0, y:50 }} 
+        whileInView={{ opacity: 1, y:0 }}
+      transition={{ duration: 0.7, }}>Our Bestsellers</motion.h2>
           <Card data={data2} />
         <button>SHOW ALL</button>
         </div>

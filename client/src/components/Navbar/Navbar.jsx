@@ -69,129 +69,131 @@ const Navbar = () => {
 
   
   return (
-    <motion.div className="navbar " ref={headerRef}>
-      <div className="wrapper">
-        <div className="left">
-          <div className="item">
-            <Link className="link" to="/product">
-              {t("SHOP")}
-            </Link>
-          </div>
-          <div className="item">
-            <Link className="link" to="/about">
-              {t("ABOUT")}
-            </Link>
-          </div>
-          <div className="item">
-            <Link className="link" to="/contact">
-              {t("CONTACT")}
-            </Link>
-          </div>
-
-          <motion.div
-            whileTap={{ scale: 1.7 }}
-            className="item itemdark"
-            onClick={toogleMode}
-          >
-            {mode ? <BsSun /> : <BsMoon />}
-          </motion.div>
-        </div>
-        <div className="center">
-          {/* logo img gelmelidi */}
-          <Link className="link" to="/">
-            {" "}
-            <span>CIHANSHOP</span>
-          </Link>
-        </div>
-        <div className="right">
-          <div className="item" onClick={() => setOpen(!open)}>
-            <BiUser />
-            <span>{t('ACCOUNT')}</span>
-            {open && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ y: 5, opacity: 1 }}
-                exit={{ y: 100, opacity: 0 }}
-                className="dropdown"
-              >
-                <ul>
-                  {
-                    //user null problem
-                    user.user ? (
-                      <Link className="link" onClick={clearUser}>
-                        Sign out
-                      </Link>
-                    ) : (
-                      <Link className="link" to="/signin">
-                        Sign in
-                      </Link>
-                    )
-                  }
-
-                  <Link className="link" to="/register">
-                    Create
-                  </Link>
-                </ul>
-              </motion.div>
-            )}
-          </div>
-          <div className="item" onClick={() => setOpenModal(true)} >
-            <AiOutlineHeart />
-            <span>{t('WISHLIST')} ({wishQuantity})</span>
-          </div>
-          <Modal open={openModal} onClose={() => setOpenModal(false)} />
-          <Link className="link" to="/cart">
+  
+      <motion.div className="navbar " ref={headerRef} >
+        <div className="wrapper">
+          <div className="left">
             <div className="item">
-              <BsBagCheck />
-              <span>{t('CART')} ({totalQuantity})</span>
+              <Link className="link" to="/product">
+                {t("SHOP")}
+              </Link>
             </div>
-          </Link>
-
-          <motion.div whileTap={{ scale: 1.7 }} className="language" onClick={() => clickLanguage()}>
-            {
-              i18n.language === 'az' ? <img src={azeflag} alt="aze" /> : <img src={usaflag} alt="usa" />
-            }
-          </motion.div>
-        </div>
-
-        <div className="mobile__menu">
-          <div className="mobile__content">
-          <div className="language" onClick={() => clickLanguage()}>
-            {
-              i18n.language === 'az' ? <img src={azeflag} alt="aze" /> : <img src={usaflag} alt="usa" />
-            }
-          </div>
+            <div className="item">
+              <Link className="link" to="/about">
+                {t("ABOUT")}
+              </Link>
+            </div>
+            <div className="item">
+              <Link className="link" to="/contact">
+                {t("CONTACT")}
+              </Link>
+            </div>
+  
             <motion.div
               whileTap={{ scale: 1.7 }}
               className="item itemdark"
               onClick={toogleMode}
             >
-              {mode ? <BsSun size={35} /> : <BsMoon size={35} />}
+              {mode ? <BsSun /> : <BsMoon />}
             </motion.div>
-            <div>
-              <Hamburger toggled={isOpen} toggle={setIsOpen} />
+          </div>
+          <div className="center">
+            {/* logo img gelmelidi */}
+            <Link className="link" to="/">
+              {" "}
+              <span>CIHANSHOP</span>
+            </Link>
+          </div>
+          <div className="right">
+            <div className="item" onClick={() => setOpen(!open)}>
+              <BiUser />
+              <span>{t('ACCOUNT')}</span>
+              {open && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ y: 5, opacity: 1 }}
+                  exit={{ y: 100, opacity: 0 }}
+                  className="dropdown"
+                >
+                  <ul>
+                    {
+                      //user null problem
+                      user.user ? (
+                        <Link className="link" onClick={clearUser}>
+                          Sign out
+                        </Link>
+                      ) : (
+                        <Link className="link" to="/signin">
+                          Sign in
+                        </Link>
+                      )
+                    }
+  
+                    <Link className="link" to="/register">
+                      Create
+                    </Link>
+                  </ul>
+                </motion.div>
+              )}
             </div>
-          
+            <div className="item" onClick={() => setOpenModal(true)} >
+              <AiOutlineHeart />
+              <span>{t('WISHLIST')} ({wishQuantity})</span>
+            </div>
+            <Modal open={openModal} onClose={() => setOpenModal(false)} />
+            <Link className="link" to="/cart">
+              <div className="item">
+                <BsBagCheck />
+                <span>{t('CART')} ({totalQuantity})</span>
+              </div>
+            </Link>
+  
+            <motion.div whileTap={{ scale: 1.7 }} className="language" onClick={() => clickLanguage()}>
+              {
+                i18n.language === 'az' ? <img src={azeflag} alt="aze" /> : <img src={usaflag} alt="usa" />
+              }
+            </motion.div>
+          </div>
+  
+          <div className="mobile__menu">
+            <div className="mobile__content">
+            <div className="language" onClick={() => clickLanguage()}>
+              {
+                i18n.language === 'az' ? <img src={azeflag} alt="aze" /> : <img src={usaflag} alt="usa" />
+              }
+            </div>
+              <motion.div
+                whileTap={{ scale: 1.7 }}
+                className="item itemdark"
+                onClick={toogleMode}
+              >
+                {mode ? <BsSun size={35} /> : <BsMoon size={35} />}
+              </motion.div>
+              <div>
+                <Hamburger toggled={isOpen} toggle={setIsOpen} />
+              </div>
+            
+            </div>
           </div>
         </div>
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="sidebar__menu "
-            animate={{ x: 350 }}
-            transition={{
-              delay: 0,
-              x: { duration: 0.7 },
-              default: { ease: "linear" },
-            }}
-            exit={{ x: -300 }}
-          >
-            <SideBar closeBar={() => setIsOpen(false)} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="sidebar__menu "
+              animate={{ x: 350 }}
+              transition={{
+                delay: 0,
+                x: { duration: 0.7 },
+                default: { ease: "linear" },
+              }}
+              exit={{ x: -300 }}
+            >
+              <SideBar closeBar={() => setIsOpen(false)} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+  
   );
 };
 
