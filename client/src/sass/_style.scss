@@ -12,7 +12,8 @@ $themes: (
     hover:$color-hover-color,
     slider:#f8f7f6,
     buttondetail:#242424,
-    side-inpt:#f5f5f5
+    side-inpt:#f5f5f5,
+    modal-cart:#dbdbdb,
   ),
   dark: (
     textColor: white,
@@ -26,7 +27,8 @@ $themes: (
     hover:#000,
     slider:#000,
     buttondetail:rgb(30, 29, 29),
-    side-inpt:#424444
+    side-inpt:#424444,
+    modal-cart:#424444,
   ),
 );
 

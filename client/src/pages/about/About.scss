@@ -94,10 +94,17 @@
                 }
 
             }
+            @include tablet {
+                display: none;
+            }
+
         }
 
         .personal{
             padding: 100px 0;
+            @include tablet {
+                padding: 0;
+            }
             .content{
                 padding: 70px 0;
         width: min(100% - 15px ,840px);

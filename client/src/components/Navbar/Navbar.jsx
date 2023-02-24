@@ -25,6 +25,7 @@ const Navbar = () => {
   const headerRef = useRef(null);
   const mode = useSelector((state) => state.dark.darkmode);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const wishQuantity = useSelector((state) => state.wish.wishQuantity )
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -136,7 +137,7 @@ const Navbar = () => {
           </div>
           <div className="item" onClick={() => setOpenModal(true)} >
             <AiOutlineHeart />
-            <span>{t('WISHLIST')}</span>
+            <span>{t('WISHLIST')} ({wishQuantity})</span>
           </div>
           <Modal open={openModal} onClose={() => setOpenModal(false)} />
           <Link className="link" to="/cart">

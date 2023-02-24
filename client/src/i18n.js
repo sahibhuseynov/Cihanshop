@@ -22,6 +22,9 @@ const resources = {
             "Swiss Essence":"İsveçrəli Əsərlər",
             "The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?":"“Yaxşı qol saatı” ifadəsi ilə insanın ağlına gələn ilk assosiasiya təbii olaraq İsveçrənin bir yerində hazırlanmışdır. İsveçrə saatlarının nə ilə fərqləndiyini bilmək istəyirsiniz?",
             "LEARN MORE":"DAHA ƏTRAFLI",
+            "My Wishlist":"İstək Siyahım",
+            "there are no items in this wishlist":"Bu siyahıda heç bir məhsul yoxdur",
+            "SHARE":"PAYLAŞ"
         }
     },
     en: {
@@ -37,7 +40,9 @@ const resources = {
             "We are happy to introduce the new Lawson Collection. These are three quartz models designed with simplicity and elegance kept in mind. They come in different sizes and colors, and all feature a stainless steel back — leaving enough space for a personalized engraving. The engraving service is complimentary with any watch from the Lawson series.":"We are happy to introduce the new Lawson Collection. These are three quartz models designed with simplicity and elegance kept in mind. They come in different sizes and colors, and all feature a stainless steel back — leaving enough space for a personalized engraving. The engraving service is complimentary with any watch from the Lawson series.",
             "Swiss Essence":"Swiss Essence",
             "The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?":"The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?",
-
+            "My Wishlist":"My Wishlist",
+            "there are no items in this wishlist":"there are no items in this wishlist",
+            "SHARE":"SHARE"
         }
     }
 };

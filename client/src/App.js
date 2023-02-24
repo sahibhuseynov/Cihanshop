@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,12 +13,15 @@ import { useSelector } from "react-redux";
 import Cart from "./pages/cart/Cart";
 import Login from "./pages/login/Login";
 import Register from './pages/register/Register';
-
-import Contact from './pages/contact/Contact';
-import Product from './pages/product/Product';
 import ProductDetail from "./pages/productDetail/ProductDetail";
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+
+const  Contact = React.lazy(() => import( './pages/contact/Contact'));
+const  Product = React.lazy(() => import('./pages/product/Product') ) 
 const About = loadable(() => import('./pages/about/About'));
+/** 3 / 45 requests
+2.7 MB / 3.4 MB transferred
+11.5 MB / 12.2 MB resources */
 const Layout = () => {
 
   const mode = useSelector((state) => state.dark.darkmode)
@@ -83,7 +87,7 @@ function App() {
   return (
     <div >
       
-        <RouterProvider router={router} />
+        <Suspense fallback={<p>Loading...</p>}><RouterProvider router={router} /></Suspense>
         
     </div>
   );

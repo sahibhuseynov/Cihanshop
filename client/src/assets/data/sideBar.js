@@ -1,4 +1,4 @@
-import {AiOutlineHome,AiOutlineShopping,AiOutlineInfoCircle, AiOutlineUser} from "react-icons/ai";
+import {AiOutlineHome,AiOutlineShopping,AiOutlineInfoCircle,AiFillShop, AiOutlineUser} from "react-icons/ai";
 import {MdOutlineContactSupport} from 'react-icons/md'
 
 const Menu = [
@@ -9,8 +9,14 @@ const Menu = [
     },
     {
         display: "Shop",
+        path: '/product',
+        icon:<AiFillShop/>
+    },
+   
+    {
+        display: "Cart",
         path: '/cart',
-        icon:<AiOutlineShopping />
+        icon:<AiOutlineShopping  />
     },
     {
         display: "About",
@@ -27,6 +33,7 @@ const Menu = [
         path: '/signin',
         icon:<AiOutlineUser  />
     },
+   
 ]
 
 export default Menu;
